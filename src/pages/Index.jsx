@@ -10,6 +10,7 @@ const Index = () => {
     text: "",
     image: "",
     byline: "",
+    imageText: "",
   });
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -25,6 +26,8 @@ const Index = () => {
       ingress: "",
       text: "",
       image: "",
+      byline: "",
+      imageText: "",
     });
   };
 
@@ -53,6 +56,10 @@ const Index = () => {
         <FormControl>
           <FormLabel>Byline</FormLabel>
           <Input name="byline" value={formData.byline} onChange={handleInputChange} placeholder="Author's Name" />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Image Text</FormLabel>
+          <Input name="imageText" value={formData.imageText} onChange={handleInputChange} placeholder="Describe the image" />
         </FormControl>
         <Button leftIcon={<FaPlus />} colorScheme="blue" onClick={handleSubmit}>
           Publish Article
