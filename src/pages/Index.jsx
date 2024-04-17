@@ -9,6 +9,7 @@ const Index = () => {
     ingress: "",
     text: "",
     image: "",
+    byline: "",
   });
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -49,6 +50,10 @@ const Index = () => {
           <FormLabel>Image URL</FormLabel>
           <Input name="image" value={formData.image} onChange={handleInputChange} placeholder="https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBuZXdzfGVufDB8fHx8MTcxMzM1NTk4OXww&ixlib=rb-4.0.3&q=80&w=1080" />
         </FormControl>
+        <FormControl>
+          <FormLabel>Byline</FormLabel>
+          <Input name="byline" value={formData.byline} onChange={handleInputChange} placeholder="Author's Name" />
+        </FormControl>
         <Button leftIcon={<FaPlus />} colorScheme="blue" onClick={handleSubmit}>
           Publish Article
         </Button>
@@ -65,6 +70,9 @@ const Index = () => {
             <Image src={article.image} alt={article.title} />
             <Heading fontSize="xl">{article.title}</Heading>
             <Text mt={4}>{article.ingress}</Text>
+            <Text fontSize="sm" color="gray.500">
+              By {article.byline}
+            </Text>
             <Text mt={2}>{article.text}</Text>
           </Box>
         ))}
